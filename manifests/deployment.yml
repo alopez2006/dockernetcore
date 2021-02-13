@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: dockernetcore 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dockernetcore
+  template:
+    metadata:
+      labels:
+        app: dockernetcore 
+    spec:
+      containers:
+        - name: dockernetcore 
+          image: alopez2006.azurecr.io/dockernetcore
+          ports:
+          - containerPort: 80
