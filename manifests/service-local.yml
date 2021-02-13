@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dockernetcore-service
+spec:
+  selector:
+    app: dockernetcore-pod
+  ports:
+  - port: 8080
+    targetPort: 80
+  type: LoadBalancer

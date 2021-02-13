@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dockernetcore-azure
+spec:
+  selector:
+    matchLabels:
+      app: dockernetcore-pod
+  template:
+    metadata:
+      labels:
+        app: dockernetcore-pod
+    spec:
+      containers:
+      - name: dockernetcore-container
+        image: alopez2006.azurecr.io/dockernetcore:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
